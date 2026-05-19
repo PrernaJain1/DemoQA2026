@@ -24,13 +24,13 @@ public class AfFrames {
 
         //Going inside iframe
         //Three ways by which we can switch to Iframe
-        //1)index- give the index of iframe which you want to access //driver.switchTo().frame(2);
+        //1)index-> give the index of iframe which you want to access //driver.switchTo().frame(2);
         //Index starts from 0-> 1st frame will be zero index
         //2)ID - driver.switchTo().frame("frame1");
         //3)WebElement- driver.findElement(By.id("frame1")) this will return webElement
 
         //Now navigating to heading inside iframe and printing its text
-        WebElement f = driver.findElement(By.id("frame1"));
+        WebElement f = driver.findElement(By.id("frame1"));  //Through WebElement
         driver.switchTo().frame(f);
         String frameText = driver.findElement(By.id("sampleHeading")).getText();
         System.out.println("Frame 1 Text : "+ frameText);
@@ -43,14 +43,14 @@ public class AfFrames {
         Thread.sleep(2000);
 
         //Scrolling to frame 2
-        //Jaascript executor applicable only for elements not text
-        WebElement frame2 = driver.findElement(By.id("frame2"));
+        //Javascript executor applicable only for elements not text
+        WebElement frame2 = driver.findElement(By.id("frame2"));  //Through WebElement
         JavascriptExecutor script = (JavascriptExecutor)driver;
         script.executeScript("arguments[0].scrollIntoView(true);",frame2);
 
         //now switching to frame 2 through index on webpage
         //Trying to access element of frame 2
-        driver.switchTo().frame(1);
+        driver.switchTo().frame(1);       //Through index
         String frame2text = driver.findElement(By.id("sampleHeading")).getText();
         System.out.println("Frame 2 Text "+ frame2text);
         Thread.sleep(2000);

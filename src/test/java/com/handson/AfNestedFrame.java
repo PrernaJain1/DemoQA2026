@@ -15,9 +15,8 @@ public class AfNestedFrame {
         driver.manage().window().maximize();
         driver.get("https://demoqa.com/nestedframes");
 
-        //Switch to parent frame through id
-        WebElement frame1 = driver.findElement(By.id("frame1"));
-        driver.switchTo().frame(frame1);
+        //Switch to parent frame through ID
+        driver.switchTo().frame("frame1");
         System.out.println("Switched to Parent frame through id");
         String parentIframe = driver.findElement(By.xpath("//body[contains(text(),'Parent frame')]")).getText();
         System.out.println(parentIframe);
